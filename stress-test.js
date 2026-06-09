@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 const ask = (query) => new Promise((resolve) => rl.question(query, resolve));
 
 async function run() {
-    console.log("🚀 Starting Interactive Stress Test Toolkit...\n");
+    console.log(" Starting Interactive Stress Test Toolkit...\n");
 
     try {
         // Fetch active campaigns to choose from
@@ -16,7 +16,7 @@ async function run() {
         const campaigns = await campaignsRes.json();
 
         if (campaigns.length === 0) {
-            console.log("❌ No active events found in the database. Please create one on the platform first.");
+            console.log(" No active events found in the database. Please create one on the platform first.");
             process.exit(0);
         }
 
@@ -28,7 +28,7 @@ async function run() {
         });
         console.log("=======================================\n");
 
-        const selectedInput = await ask("👉 Enter the number of the event to test (or paste the literal Campaign ID): ");
+        const selectedInput = await ask(" Enter the number of the event to test (or paste the literal Campaign ID): ");
         let targetCampaign;
 
         const selectedIdx = parseInt(selectedInput.trim());
@@ -50,7 +50,7 @@ async function run() {
 
         console.log(`\n🎯 TARGET EVENT: "${targetCampaign.title}"`);
         console.log(`🎫 Event ID:    ${campaignId}`);
-        console.log(`✅ Available:    ${seatsAvailable} / ${totalSeats}\n`);
+        console.log(` Available:    ${seatsAvailable} / ${totalSeats}\n`);
 
         console.log("=== Select Iteration Limit (Concurrent Requests) ===");
         console.log("1) 10");
